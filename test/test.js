@@ -39,17 +39,14 @@ beforeEach(done => {
 });
 
 // s'execute apre chaque test
-afterEach(done => {
+/*afterEach(done => {
     //console.log('\n');
     done();
 });
-
-
+*/
 //--------  DESCRIPTION DES TEST -----------
-describe('# test', () => {
-    /************************************************************/
-    /****************** TEST MYSQL CONNECTION********************/
-    /************************************************************/
+/*describe('# test', () => {
+
     describe('# test', () => {
         it('# Mysql connection', async () => {
             const result = await asyncQuery('show status like "Connections%"')
@@ -58,11 +55,11 @@ describe('# test', () => {
             console.log('# mysql connect is OK')
         }).timeout(0); 
     })
-
+*/
     /************************************************************/
     /****************** TEST ASSETS FONCTIONS *******************/
     /************************************************************/
-    describe('\n\n-------focntion test------\n', () => {
+ /*   describe('\n\n-------focntion test------\n', () => {
         // test mysql ASSETS FONCTIONS
         it('#1 fonction asyncMysq dans mysqlConf', async () => {
             console.log('\n------- Fonctions test  ------\n')
@@ -82,24 +79,26 @@ describe('# test', () => {
         }).timeout(0);
 
         it('\n #4 test fonction cleanArray dans util', (done) => {
-            let results = cleanArray(['*/n1','n2/+,','()&n3']) 
+            let results = cleanArray(['*/
+            /*n1','n2/+,','()&n3']) 
             jsonToString(results) != `n1,n2,n3` ? done(new Error('no found :'+jsonToString(results))) :
             (done(), console.log('#5 function cleanArray is ok'))
         }).timeout(0);
     })
-
+*/
     /************************************************************/
     /************ TEST CRUD - ROUTAGE TEST SIMPLIFIE ************/
     /************************************************************/
-    describe('API ROUTER /test', () => {
+  /*  describe('API ROUTER /test', () => {
         CRUDTest('test', 'EM49NzIsasEpD061unupEiihQUr9XCSa', {
             dataValue: 'test'
         })
     })
-
+*/
     /************************************************************/
     /****************** SESSION - ROUTAGE TEST  *****************/
     /************************************************************/
+    /*
     describe('GET /session', () => {
         urlAD = 'session'
         it(`# test Read /${urlAD}`, async () => {
@@ -116,4 +115,4 @@ describe('# test', () => {
             }
         }).timeout(0);
     })
-})
+    */
