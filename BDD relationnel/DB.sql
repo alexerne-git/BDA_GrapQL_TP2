@@ -154,3 +154,8 @@ MAX(first_class_price) as MaximumFirst
 FROM price_vol, flight
 WHERE flight.id_flight = price_vol.id_flight AND 
 (name_origin="IAH" OR name_destination="IAH")
+ 
+
+ /* Relation PATH: 
+ Afin de trouver les plus courts chemins entre certains aéroports, il serait nécessaire d'implémenter un algorithme du plus 
+ court chemin comme l'algorithme de Djikstra, cependant, ceci s'avère être un exercice laborieux à réalisé en SQL*/
