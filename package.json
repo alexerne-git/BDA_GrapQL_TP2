@@ -4,26 +4,9 @@
   "description": "Docker",
   "main": "index.js",
   "scripts": {
-    "buildAdmin": "webpack --config srcAdmin/view/webpack.config.js -p --mode production --progress",
-    "buildClient": "webpack --config srcClient/view/webpack.config.js -p --mode production --progress",
-    "start": "npm run buildAdmin && npm run buildClient && npm run startCon",
-    "startCon": "concurrently \"npm run startAdmin\" \"npm run startClient\"",
-    "startAdmin": "node srcAdmin/bin/www",
-    "startClient": "node srcClient/bin/www",
-    "viewAdmin": "webpack-dev-server --config srcAdmin/view/webpack.config.js --mode development --devtool inline-source-map --hot",
-    "viewClient": "webpack-dev-server --config srcClient/view/webpack.config.js --mode development --devtool inline-source-map --hot",
-    "serverAdmin": "nodemon srcAdmin/bin/www",
-    "serverClient": "nodemon srcClient/bin/www",
-    "testDev": "nodemon --exec \"mocha -R min\"",
-    "test": "mocha --exit",
-    "fix-js": "eslint-auto-fix",
-    "devAdmin": "concurrently  \"npm run viewAdmin\" \"npm run serverAdmin\" \"npm run fix-js\" \"npm run testDev\"",
-    "devClient": "concurrently  \"npm run viewClient\" \"npm run serverClient\" \"npm run fix-js\" \"npm run testDev\"",
-    "dt": "concurrently \"npm run viewAdmin\" \"npm run viewClient\"  \"npm run serverAdmin\" \"npm run serverClient\" \"npm run fix-js\" \"npm run testDev\"",
-    "clean": "rd /S /Q node_modules && del /F package-lock.json && npm install",
-    "reset": "rm -rf node_modules/ && rm -rf package-lock.json && npm install"
+    "startAdmin": "node srcAdmin/bin/www"
   },
-  "author": "h-app",
+  "author": "TP",
   "license": "ISC",
   "dependencies": {
     "@date-io/date-fns": "^1.3.11",
