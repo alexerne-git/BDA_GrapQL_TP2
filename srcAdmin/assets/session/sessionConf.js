@@ -7,11 +7,6 @@ const MySQLStore = require('express-mysql-session')(session);
 // eslint-disable-next-line no-undef
 sessionConf = (app) => {
   const options = {
-    host: '37.120.187.69',
-    port: '3306',
-    user: 'meister',
-    password: 'cJpMr&(8LcR)6AvC8*',
-    database: 'paiement'
   };
 
   const sessionStore = new MySQLStore(options);
