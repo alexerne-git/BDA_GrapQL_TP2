@@ -1,4 +1,5 @@
 /* TABLES SQL base de donnée TP1 */
+/*Modèle de la base de données disponible sur le document écrit*/
 use alex_test;
 DROP DATABASE alex_test;
 CREATE DATABASE alex_test;
@@ -58,6 +59,9 @@ CREATE TABLE first_class (
 
 
 /*TEST ZONE */
+
+/*--------------------------------------------*/
+
 /*DEN et SFO (requete 1)*/
 INSERT INTO flight(duration,airline,date_flight,name_origin,name_destination)
 VALUES(100,2979,'2020-03-13',"SFO","DEN"),(102,3000,'2020-03-14',"SFO","DEN")
@@ -98,19 +102,20 @@ VALUES(100,12);
 /*--------------------------------------------------------------------------------*/
 SELECT * FROM flight
 
+-- 2. 
 
-/*Requete 1*/
+/*Requete a*/
 SELECT COUNT(id_flight) 
 FROM flight
 WHERE name_origin="SFO" AND name_destination="DEN" 
 OR name_origin="DEN" AND name_destination="SFO"
 
-/*Requete 2*/
+/*Requete b*/
 SELECT flight.duration, flight.airline, flight.date_flight
 FROM flight
 WHERE name_origin="LAX" OR name_destination="LAX"
 
-/*Requete 3*/
+/*Requete c*/
 SELECT flight.airline, 
 (SELECT price FROM economy WHERE flight.id_flight= economy.id_flight) AS economy_price,
 (SELECT price FROM business WHERE flight.id_flight= business.id_flight) AS business_price,
@@ -119,17 +124,17 @@ FROM flight
 WHERE name_origin="IAD" AND name_destination="MCO" 
 OR name_origin="MCO" AND name_destination="IAD" 
 
-/*Requete 4*/
+/*Requete d*/
 SELECT COUNT(id_flight) as nombre_vol
 FROM flight
 WHERE name_origin="ORD" 
 
-/*Requete 5*/
+/*Requete e*/
 SELECT COUNT(id_flight) as nombre_vol
 FROM flight
 WHERE name_origin="BOS" OR name_destination="BOS" 
 
-/*Requete 6*/
+/*Requete f*/
 SELECT AVG((economy.price+business.price+first_class.price)/3) as moyenne
 FROM flight, economy, business, first_class
 WHERE name_destination="MCO" AND (economy.id_flight = flight.id_flight OR 
@@ -155,7 +160,7 @@ FROM price_vol, flight
 WHERE flight.id_flight = price_vol.id_flight AND 
 (name_origin="IAH" OR name_destination="IAH")
  
+-- 3 
 
- /* Relation PATH: 
- Afin de trouver les plus courts chemins entre certains aéroports, il serait nécessaire d'implémenter un algorithme du plus 
- court chemin comme l'algorithme de Djikstra, cependant, ceci s'avère être un exercice laborieux à réalisé en SQL*/
+/* Il serait possible de créer les requêtes shortest path en SQL, cependant, il serait nécessaire d’implémenter un algorithme comme l'algorithme de Djikstra, cependant, ceci s’avère être une tâche laborieuse. 
+*/
